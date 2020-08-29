@@ -1,0 +1,18 @@
+.navbar.navbar-expand-lg.navbar-light .navbar-nav .nav-item .nav-link {
+    color: #b9b9b9;
+}
+
+.navbar.navbar-expand-lg.navbar-light .navbar-nav .nav-item .nav-link:hover {
+    background-color: #00A19C;
+    color: #ffffff;
+    transition: 1s;
+}
+
+.navbar.navbar-expand-lg.navbar-light .navbar-brand:hover{
+    background-color: #ffffff;
+    transition: 1s;
+}
+
+.container{
+    margin-top: 130px;
+}
