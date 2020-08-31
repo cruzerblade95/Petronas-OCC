@@ -1,1 +1,47 @@
-<p>site-code works!</p>
+<h1>Site Code</h1>
+<div>
+
+  <table border='1' width='100%' style='border-collapse: collapse;'>
+    <tr>
+      <th>ID</th>
+      <th>Site Name</th>
+      <th>Region</th>
+      <th>IP Address</th>
+      <th>Email</th>
+      <th>CC To</th>
+      <th>Manage</th>
+    </tr>
+
+    <tr class="hoverTable" *ngFor="let policy of siteCode">
+      <td>{{ policy.id }}</td>
+      <td>{{ policy.site_name }}</td>
+      <td>{{ policy.region }}</td>
+      <td>{{ policy.ip_address }}</td>
+      <td>{{ policy.email }}</td>
+      <td>{{ policy.cc_to }}</td>
+      <td>
+        <button (click)="deleteSiteCode(policy.id)">Delete</button>
+        <button (click)="selectSiteCode(policy)">Update</button>
+      </td>
+    </tr>
+  </table>
+
+  <br>
+  <form #f = "ngForm">
+    <label>Site Name</label>
+    <input type="text" name="site_name" [(ngModel)]="selectedSiteCode.site_name">
+    <br>
+    <label>Region</label>
+    <input type="text" name="region" [(ngModel)]="selectedSiteCode.region">
+    <br>
+    <label>IP Address</label>
+    <input type="text" name="ip_address" [(ngModel)]="selectedSiteCode.ip_address">
+    <br>
+    <label>Email</label>
+    <input type="text" name="email" [(ngModel)]="selectedSiteCode.email">
+    <br>
+    <label>CC To</label>
+    <input type="text" name="cc_to" [(ngModel)]="selectedSiteCode.cc_to">
+    <br>
+    <input type="button" (click)="createOrUpdateSiteCode(f)" value="Create or Update Policy">
+  </form>
