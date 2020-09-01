@@ -1,12 +1,7 @@
 <div class="card">
-<h1>Site Code</h1>
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item active" aria-current="page">Site Code</li>
-  </ol>
-</nav>
 
-  <table datatable [dtOptions]="dtOptions" class="table">
+
+  <table *ngIf="dataArray" datatable="ng" [dtOptions]="dtOptions" class="table" id="dt">
     <thead class="thead-dark">
     <tr>
       <th>ID</th>
@@ -19,7 +14,8 @@
     </tr>
     </thead>
 
-    <tr class="hoverTable" *ngFor="let policy of siteCode">
+    <tbody>
+    <tr class="hoverTable" *ngFor="let policy of dataArray">
       <td><a href="#">{{ policy.id }}</a></td>
       <td>{{ policy.site_name }}</td>
       <td>{{ policy.region }}</td>
@@ -27,11 +23,13 @@
       <td>{{ policy.email }}</td>
       <td>{{ policy.cc_to }}</td>
       <td>
-        <button (click)="deleteSiteCode(policy.id)" class="btn btn-primary">Delete</button>
+        <button (click)="deleteSiteCode(policy.id)" class="btn btn-primary" style="font-size: 0.9vw;">Delete</button>
         &nbsp;
-        <button (click)="selectSiteCode(policy)" class="btn btn-primary">Update</button>
+        <button (click)="selectSiteCode(policy)" class="btn btn-primary" style="font-size: 0.9vw;">Update</button>
       </td>
     </tr>
+
+    </tbody>
   </table>
 </div>
   <br>

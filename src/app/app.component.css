@@ -15,5 +15,13 @@
 }
 
 .container{
-    margin-top: 130px;
+    margin-top: 60px;
+    margin-right: 0px;
+    font-size: 0.9vw;
+    font-family: Calibri;
+}
+
+nav{
+    height: 45px;
+    font-size: 1vw;
 }

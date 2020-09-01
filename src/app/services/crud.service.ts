@@ -11,6 +11,8 @@ export class CrudService {
 
   constructor(private httpClient: HttpClient) { }
 
+  
+
   readSiteCode(): Observable<SiteCode[]>{
     return this.httpClient.get<SiteCode[]>(`${this.PHP_API_SERVER}/sc_view.php`);
   }

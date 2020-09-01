@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { DataTablesModule } from 'angular-datatables';
+import { CrudService } from './services/crud.service'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,7 +26,7 @@ import { SiteCodeComponent } from './site-code/site-code.component';
     HttpClientModule,
     DataTablesModule
   ],
-  providers: [],
+  providers: [CrudService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

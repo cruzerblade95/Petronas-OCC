@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CrudService } from '../services/crud.service';
 import { SiteCode } from '../.model/site_code';
-
+declare var $;
 
 @Component({
   selector: 'app-site-code',
@@ -10,23 +10,41 @@ import { SiteCode } from '../.model/site_code';
 })
 export class SiteCodeComponent implements OnInit {
 
+  dataArray: any = [];
   dtOptions: DataTables.Settings = {};
   siteCode:  SiteCode[];
   selectedSiteCode:  SiteCode  = { id: null , site_name: null, region: null, ip_address: null, email: null, cc_to: null};
+  showContent: boolean;
 
-  constructor(private crudService: CrudService) { }
+  constructor(public crudService: CrudService, private chRef: ChangeDetectorRef) { 
+    
+    this.loadTableData();
+    
+    setTimeout(() => {
+      $(function (){
+        $('#dt').DataTable();
+      });
+    }, 0);
 
-  ngOnInit(): void {
+    
 
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 5,
       processing: true
     };
+    
+    
+  }
 
+  ngOnInit(): void {
+    
+  }
+
+  loadTableData(){
     this.crudService.readSiteCode().subscribe((siteCode: SiteCode[])=>{
-      this.siteCode = siteCode;
-      console.log(this.siteCode);
+      this.dataArray = siteCode;
+      console.log(siteCode);
     })
   }
 
