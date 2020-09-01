@@ -1,7 +1,13 @@
+<div class="card">
 <h1>Site Code</h1>
-<div>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Site Code</li>
+  </ol>
+</nav>
 
-  <table border='1' width='100%' style='border-collapse: collapse;'>
+  <table datatable [dtOptions]="dtOptions" class="table">
+    <thead class="thead-dark">
     <tr>
       <th>ID</th>
       <th>Site Name</th>
@@ -11,6 +17,7 @@
       <th>CC To</th>
       <th>Manage</th>
     </tr>
+    </thead>
 
     <tr class="hoverTable" *ngFor="let policy of siteCode">
       <td><a href="#">{{ policy.id }}</a></td>
@@ -20,28 +27,52 @@
       <td>{{ policy.email }}</td>
       <td>{{ policy.cc_to }}</td>
       <td>
-        <button (click)="deleteSiteCode(policy.id)">Delete</button>
-        <button (click)="selectSiteCode(policy)">Update</button>
+        <button (click)="deleteSiteCode(policy.id)" class="btn btn-primary">Delete</button>
+        &nbsp;
+        <button (click)="selectSiteCode(policy)" class="btn btn-primary">Update</button>
       </td>
     </tr>
   </table>
-
+</div>
   <br>
+  <!-- Registration and Editing Form -->
   <form #f = "ngForm">
+    <table>
+      <tr>
+        <td>
     <label>Site Name</label>
+        </td><td>
     <input type="text" name="site_name" [(ngModel)]="selectedSiteCode.site_name">
-    <br>
+        </td>
+      </tr><tr>
+        <td>
     <label>Region</label>
+        </td><td>
     <input type="text" name="region" [(ngModel)]="selectedSiteCode.region">
-    <br>
+        </td>
+      </tr><tr>
+        <td>
     <label>IP Address</label>
+        </td><td>
     <input type="text" name="ip_address" [(ngModel)]="selectedSiteCode.ip_address">
-    <br>
+        </td>
+      </tr><tr>
+        <td>
     <label>Email</label>
+        </td><td>
     <input type="text" name="email" [(ngModel)]="selectedSiteCode.email">
-    <br>
+        </td>
+      </tr><tr>
+        <td>
     <label>CC To</label>
+        </td><td>
     <input type="text" name="cc_to" [(ngModel)]="selectedSiteCode.cc_to">
-    <br>
+        </td>
+      </tr><tr>
+        <td>
     <input type="button" (click)="createOrUpdateSiteCode(f)" value="Create or Update Policy">
+        </td><td>
+        </td>
+      </tr>
+  </table>
   </form>

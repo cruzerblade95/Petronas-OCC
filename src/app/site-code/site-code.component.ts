@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../services/crud.service';
 import { SiteCode } from '../.model/site_code';
 
+
 @Component({
   selector: 'app-site-code',
   templateUrl: './site-code.component.html',
@@ -9,12 +10,20 @@ import { SiteCode } from '../.model/site_code';
 })
 export class SiteCodeComponent implements OnInit {
 
+  dtOptions: DataTables.Settings = {};
   siteCode:  SiteCode[];
   selectedSiteCode:  SiteCode  = { id: null , site_name: null, region: null, ip_address: null, email: null, cc_to: null};
 
   constructor(private crudService: CrudService) { }
 
   ngOnInit(): void {
+
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 5,
+      processing: true
+    };
+
     this.crudService.readSiteCode().subscribe((siteCode: SiteCode[])=>{
       this.siteCode = siteCode;
       console.log(this.siteCode);
