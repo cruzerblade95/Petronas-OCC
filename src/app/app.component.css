@@ -1,5 +1,6 @@
 .navbar.navbar-expand-lg.navbar-light .navbar-nav .nav-item .nav-link {
     color: #b9b9b9;
+    font-size: 0.9vw;
 }
 
 .navbar.navbar-expand-lg.navbar-light .navbar-nav .nav-item .nav-link:hover {
@@ -50,4 +51,5 @@ nav{
     width: 100%;
     text-align: center;
     color: #ffffff;
+    font-size: 1vw;
 }
