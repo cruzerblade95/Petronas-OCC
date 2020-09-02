@@ -21,11 +21,13 @@
 
 .sidebar-hover .nav-item .nav-link{
     padding-left: 10px;
+    color: black;
     text-align: left;
 }
 .sidebar-hover .nav-item .nav-link:hover{
     background-color: #00A19C;
-    transition: 1s;
+    color: #ffffff;
+    transition: 0.5s;
 }
 
 .container{
@@ -38,4 +40,14 @@
 nav{
     height: 45px;
     font-size: 1vw;
+}
+
+.footer{
+    background-color: #00A19C;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
 }

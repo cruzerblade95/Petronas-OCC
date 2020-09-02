@@ -53,12 +53,14 @@ export class SiteCodeComponent implements OnInit {
       form.value.id = this.selectedSiteCode.id;
       this.crudService.updateSiteCode(form.value).subscribe((siteCode: SiteCode)=>{
         console.log("Site Code information updated" , siteCode);
+        window.location.reload();
       });
     }
     else{
 
       this.crudService.createSiteCode(form.value).subscribe((siteCode: SiteCode)=>{
         console.log("Site Code information created, ", siteCode);
+        window.location.reload();
       });
     }
 
@@ -71,6 +73,7 @@ export class SiteCodeComponent implements OnInit {
   deleteSiteCode(id){
     this.crudService.deleteSiteCode(id).subscribe((siteCode: SiteCode)=>{
       console.log("Site Code information deleted, ", siteCode);
+      window.location.reload();
     });
   }
 

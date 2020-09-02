@@ -23,9 +23,9 @@
       <td>{{ policy.email }}</td>
       <td>{{ policy.cc_to }}</td>
       <td>
-        <button (click)="deleteSiteCode(policy.id)" class="btn btn-primary" style="font-size: 0.9vw;">Delete</button>
+        <button (click)="deleteSiteCode(policy.id)" class="btn btn-primary" style="font-size: 0.9vw; background-color: #68468B;">Delete</button>
         &nbsp;
-        <button (click)="selectSiteCode(policy)" class="btn btn-primary" style="font-size: 0.9vw;">Update</button>
+        <button (click)="selectSiteCode(policy)" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary" style="font-size: 0.9vw; background-color: #68468B;">Update</button>
       </td>
     </tr>
 
@@ -33,7 +33,21 @@
   </table>
 </div>
   <br>
-  <!-- Registration and Editing Form -->
+  <button data-toggle="modal" data-target="#exampleModal" class="btn btn-primary" style="font-size: 0.9vw; background-color: #68468B; margin-left: 30px;">Add New NDR</button>
+  
+
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Registration and Editing Form -->
   <form #f = "ngForm">
     <table>
       <tr>
@@ -66,11 +80,14 @@
         </td><td>
     <input type="text" name="cc_to" [(ngModel)]="selectedSiteCode.cc_to">
         </td>
-      </tr><tr>
-        <td>
-    <input type="button" (click)="createOrUpdateSiteCode(f)" value="Create or Update Policy">
-        </td><td>
-        </td>
       </tr>
   </table>
   </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        <input type="button" class="btn btn-primary" (click)="createOrUpdateSiteCode(f)" value="Create or Update Policy">
+      </div>
+    </div>
+  </div>
+</div>
