@@ -45,7 +45,7 @@ export class SiteCodeComponent implements OnInit {
     this.crudService.readSiteCode().subscribe((siteCode: SiteCode[])=>{
       this.dataArray = siteCode;
       console.log(siteCode);
-    })
+    });
   }
 
   createOrUpdateSiteCode(form){
@@ -78,3 +78,4 @@ export class SiteCodeComponent implements OnInit {
   }
 
 }
+

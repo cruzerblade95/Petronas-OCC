@@ -1,0 +1,124 @@
+<div class="card">
+
+
+    <table datatable [dtOptions]="dtOptions" class="table" id="dt">
+      <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>Site ID</th>
+        <th>Fuel Account</th>
+        <th>Pump Name</th>
+        <th>State</th>
+        <th>Region</th>
+        <th>Company Name</th>
+        <th>Dealer Name</th>
+        <th>Tel No.</th>
+        <th>HP No.</th>
+        <th>Manage</th>
+      </tr>
+      </thead>
+  
+      <tbody>
+      <tr class="hoverTable" *ngFor="let policy of dataArray">
+        <td><a href="#">{{ policy.id }}</a></td>
+        <td>{{ policy.site_id }}</td>
+        <td>{{ policy.fuel_account }}</td>
+        <td>{{ policy.pump_name }}</td>
+        <td>{{ policy.state }}</td>
+        <td>{{ policy.region }}</td>
+        <td>{{ policy.company_name }}</td>
+        <td>{{ policy.dealer_name }}</td>
+        <td>{{ policy.tel_no }}</td>
+        <td>{{ policy.hp_no }}</td>
+        <td>
+          <button (click)="deleteStationContact(policy.id)" class="btn btn-primary" style="font-size: 0.9vw; background-color: #68468B;">Delete</button>
+          &nbsp;
+          <button (click)="selectStationContact(policy)" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary" style="font-size: 0.9vw; background-color: #68468B;">Update</button>
+        </td>
+      </tr>
+  
+      </tbody>
+    </table>
+  </div>
+    <br>
+    <button data-toggle="modal" data-target="#exampleModal" class="btn btn-primary" style="font-size: 0.9vw; background-color: #68468B; margin-left: 30px;">Add New PDB</button>
+    
+  
+    <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Registration and Editing Form -->
+    <form #f = "ngForm">
+      <table>
+        <tr>
+          <td>
+      <label>Site ID</label>
+          </td><td>
+      <input type="text" name="site_id" [(ngModel)]="selectedStationContact.site_id" disabled>
+          </td>
+        </tr><tr>
+          <td>
+      <label>Fuel Account</label>
+          </td><td>
+      <input type="text" name="fuel_account" [(ngModel)]="selectedStationContact.fuel_account">
+          </td>
+        </tr><tr>
+          <td>
+      <label>Pump Name</label>
+          </td><td>
+      <input type="text" name="pump_name" [(ngModel)]="selectedStationContact.pump_name">
+          </td>
+        </tr><tr>
+          <td>
+      <label>State</label>
+          </td><td>
+      <input type="text" name="state" [(ngModel)]="selectedStationContact.state">
+          </td>
+        </tr><tr>
+          <td>
+      <label>Region</label>
+          </td><td>
+      <input type="text" name="region" [(ngModel)]="selectedStationContact.region">
+    </tr><tr>
+        <td>
+    <label>Company Name</label>
+        </td><td>
+    <input type="text" name="company_name" [(ngModel)]="selectedStationContact.company_name">
+        </td>
+    </tr><tr>
+        <td>
+    <label>Dealer Name</label>
+        </td><td>
+    <input type="text" name="dealer_name" [(ngModel)]="selectedStationContact.dealer_name">
+        </td>
+    </tr><tr>
+        <td>
+    <label>Telephone No.</label>
+        </td><td>
+    <input type="text" name="tel_no" [(ngModel)]="selectedStationContact.tel_no">
+        </td>
+    </tr><tr>
+        <td>
+    <label>HP No.</label>
+        </td><td>
+    <input type="text" name="hp_no" [(ngModel)]="selectedStationContact.hp_no">
+        </td>
+      </tr>
+    </table>
+    </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          <input type="button" class="btn btn-primary" (click)="createOrUpdateStationContact(f)" value="Create or Update Policy">
+        </div>
+      </div>
+    </div>
+  </div>

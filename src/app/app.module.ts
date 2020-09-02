@@ -10,13 +10,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { SiteCodeComponent } from './site-code/site-code.component';
+import { StationContactComponent } from './station-contact/station-contact.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SiteCodeComponent
+    SiteCodeComponent,
+    StationContactComponent
   ],
   imports: [
     BrowserModule,
