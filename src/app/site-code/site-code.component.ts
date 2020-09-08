@@ -77,5 +77,9 @@ export class SiteCodeComponent implements OnInit {
     });
   }
 
+  Exportelx() {  
+    this.crudService.exportAsExcelFile(this.dataArray, "SiteCodeInformation")  
+}
+
 }
 

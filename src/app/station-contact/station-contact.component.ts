@@ -59,4 +59,15 @@ export class StationContactComponent implements OnInit {
     }
 
 }
+
+selectStationContact(stationContact: StationContact){
+  this.selectedStationContact = stationContact;
+}
+
+deleteStationContact(id){
+  this.crudService.deleteStationContact(id).subscribe((stationContact: StationContact)=>{
+    console.log("Site Code information deleted, ", stationContact);
+    window.location.reload();
+  });
+}
 }
