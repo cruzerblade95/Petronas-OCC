@@ -23,7 +23,8 @@
               "src/myicon.ico",
               "src/assets",
               "src/assets/image/favicon.ico",
-              "src/favicon-32x32.png"
+              "src/favicon-32x32.png",
+              "src/_redirects"
             ],
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.css",
